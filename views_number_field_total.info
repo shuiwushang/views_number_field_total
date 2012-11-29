@@ -1,0 +1,14 @@
+name = views_number_field_total
+description = Views Number Field total 
+core = 7.x
+
+files[] = views/views_number_field_total.views.inc
+
+files[] = views/handlers/views_number_field_total_handler.inc
+files[] = views/handlers/views_number_field_total_handler_filter_numeric.inc
+files[] = views/handlers/views_number_field_total_handler_filter_numeric_handler_sort.inc
+files[] = views/handlers/views_number_field_total_filter_group_by_numeric.inc
+
+files[] = views/plugins/views_number_field_total_plugin_query.inc
+version = "7.x-1.x-dev"
+
