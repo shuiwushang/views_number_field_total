@@ -3,7 +3,7 @@
 define('VIEWS_NUMBER_FIELD_TOTAL_FIELD', 'number_field_total_field');
 
 /**
- * Implements Hook_views_api
+ * Implements Hook_views_api().
  */
 function views_number_field_total_views_api() {
   return array(

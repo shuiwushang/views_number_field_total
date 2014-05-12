@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Implements Hook_views_data_alter
+ * Implements hook_views_data_alter().
  */
 function views_number_field_total_views_data_alter(&$data) {
   $data['views'][VIEWS_NUMBER_FIELD_TOTAL_FIELD] = array(

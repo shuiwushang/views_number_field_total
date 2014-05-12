@@ -20,5 +20,3 @@ class views_number_field_total_plugin_query extends views_plugin_query_default {
   }
   
 }
-
-/* End of file views_number_field_total_plugin_query */   
