@@ -1,6 +1,6 @@
 <?php
 
-class views_number_field_total_handler_filter_numeric extends views_handler_filter_numeric {
+class views_number_field_calc_handler_filter_numeric extends views_handler_filter_numeric {
 
   function query() {
 
@@ -81,4 +81,5 @@ class views_number_field_total_handler_filter_numeric extends views_handler_filt
     $field_sql = '(' . $field . ') RLIKE ' . $this->value['value'];
     $this->query->add_where_expression($this->options['group'], $field_sql, array());
   }
+
 }

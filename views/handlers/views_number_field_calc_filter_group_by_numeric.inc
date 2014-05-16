@@ -1,6 +1,6 @@
 <?php
 
-class views_number_field_total_filter_group_by_numeric extends views_handler_filter_group_by_numeric {
+class views_number_field_calc_filter_group_by_numeric extends views_handler_filter_group_by_numeric {
 
   function query() {
 

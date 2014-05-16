@@ -1,11 +1,10 @@
 <?php
 
-class views_number_field_total_handler_filter_numeric_handler_sort extends views_handler_sort {
+class views_number_field_calc_handler_filter_numeric_handler_sort extends views_handler_sort {
 
   function query() {
 
     $field = $this->options['selected_field'];
-
     if (!empty($field) && $this->field_list($field)) {
       $order = $this->options['order'];
       $this->query->orderby[] = array(
@@ -51,4 +50,5 @@ class views_number_field_total_handler_filter_numeric_handler_sort extends views
     );
     parent::options_form($form, $form_state);
   }
+
 }

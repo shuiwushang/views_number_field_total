@@ -1,0 +1,13 @@
+<?php
+
+/**
+  * Implements hook_views_number_field_calc_formula().
+  */
+function hook_views_number_field_calc_formula_alter(&$options) {
+  $options = array(
+    '+' => t('+'),
+    '-' => t('-'),
+    '*' => t('x'),
+    '/' => t('÷')
+  );
+}

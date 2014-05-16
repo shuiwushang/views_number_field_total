@@ -1,10 +1,9 @@
 <?php
 
-class views_number_field_total_handler extends views_handler_field_numeric {
+class views_number_field_calc_handler extends views_handler_field_numeric {
 
   function query() {
-
-    //This line is needed for the aggregation settidgs in the query.
+    // This line is needed for the aggregation settidgs in the query.
     $params = $this->options['group_type'] != 'group' ? array('function' => $this->options['group_type']) : array();
 
     $fields = array(
@@ -78,7 +77,7 @@ class views_number_field_total_handler extends views_handler_field_numeric {
       $field_key = preg_replace('~[\.\+\-\*]*~', '', $field_key);
 
       // Generates the largest number to field alias.
-      $field_alias = VIEWS_NUMBER_FIELD_TOTAL_FIELD;
+      $field_alias = VIEWS_NUMBER_FIELD_CALC_FIELD;
 
       // Prevent duplicate execution.
       if (!isset($save_field[$field_key])) {
@@ -86,7 +85,7 @@ class views_number_field_total_handler extends views_handler_field_numeric {
         $i = 1;
         do {
           if (isset($this->query->fields[$field_alias])) {
-            $field_alias = VIEWS_NUMBER_FIELD_TOTAL_FIELD . '_' . $i;
+            $field_alias = VIEWS_NUMBER_FIELD_CALC_FIELD . '_' . $i;
           }
           else {
             break;
@@ -153,7 +152,7 @@ class views_number_field_total_handler extends views_handler_field_numeric {
       }
     }
 
-    $fields[VIEWS_NUMBER_FIELD_TOTAL_FIELD . '_custom_number'] = 'Custom number';
+    $fields[VIEWS_NUMBER_FIELD_CALC_FIELD . '_custom_number'] = 'Custom number';
 
     return $fields;
   }
@@ -181,7 +180,7 @@ class views_number_field_total_handler extends views_handler_field_numeric {
         '/' => t('÷')
       );
 
-      drupal_alter('views_field_formula', &$options);
+      drupal_alter('views_number_field_calc_formula', $options);
     }
 
     if ($index !== NULL) {
@@ -209,7 +208,7 @@ class views_number_field_total_handler extends views_handler_field_numeric {
         //Hide the modes when the content type value is .
         //'visible' => FALSE,
         'visible' => array(
-          'select[name="options[field1]"]' => array('value' => VIEWS_NUMBER_FIELD_TOTAL_FIELD . '_custom_number'),
+          'select[name="options[field1]"]' => array('value' => VIEWS_NUMBER_FIELD_CALC_FIELD . '_custom_number'),
         ),
       ),
     );
@@ -236,10 +235,10 @@ class views_number_field_total_handler extends views_handler_field_numeric {
       '#size' => 15,
       '#default_value' => $this->options['custom_number_field2'],
       '#states' => array(
-        //Hide the modes when the content type value is .
-        //'visible' => FALSE,
+        // Hide the modes when the content type value is .
+        //' visible' => FALSE,
         'visible' => array(
-          'select[name="options[field2]"]' => array('value' => VIEWS_NUMBER_FIELD_TOTAL_FIELD . '_custom_number'),
+          'select[name="options[field2]"]' => array('value' => VIEWS_NUMBER_FIELD_CALC_FIELD . '_custom_number'),
         ),
       ),
     );

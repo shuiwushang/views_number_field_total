@@ -1,0 +1,14 @@
+name =  Views number field calculate
+description = Views number field calculate
+core = 7.x
+version = "7.x-1.x-dev"
+
+dependencies[] = views
+
+files[] = views/views_number_field_calc.views.inc
+files[] = views/handlers/views_number_field_calc_handler.inc
+files[] = views/handlers/views_number_field_calc_handler_filter_numeric.inc
+files[] = views/handlers/views_number_field_calc_handler_filter_numeric_handler_sort.inc
+files[] = views/handlers/views_number_field_calc_filter_group_by_numeric.inc
+files[] = views/plugins/views_number_field_calc_plugin_query.inc
+
