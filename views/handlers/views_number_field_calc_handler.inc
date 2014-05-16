@@ -110,6 +110,8 @@ class views_number_field_calc_handler extends views_handler_field_numeric {
   }
 
   /**
+   * get type is number fields.
+   * 
    * @access public
    * @return array
    */
@@ -117,22 +119,21 @@ class views_number_field_calc_handler extends views_handler_field_numeric {
     $fields = array();
 
     $fields_array = $this->view->display_handler->get_handlers('field');
-    //TODO: This part is very weak:
-    //We need to find a proper way to scan data types for fields.
+    // TODO: This part is very weak:
+    // We need to find a proper way to scan data types for fields.
     foreach ($fields_array as $name => $field) {
-
       if ($field instanceof views_handler_field_math) {
         continue;
       }
-
+      $field_name = $field->label() ? $field->label() : $name;
       if (get_class($field) == 'views_handler_field_numeric') {
-        $fields[$name] = $field->ui_name() . $this->_string_brackets($name);
+        $fields[$name] = $field->ui_name() . $this->_string_brackets($field_name);
         continue;
       }
 
       if ($field instanceof views_handler_field_field) {
         if ($field->field_info['type'] == 'number_integer') {
-          $fields[$name] = $field->ui_name() . $this->_string_brackets($name);
+          $fields[$name] = $field->ui_name() . $this->_string_brackets($field_name);
           continue;
         }
       }
@@ -148,7 +149,7 @@ class views_number_field_calc_handler extends views_handler_field_numeric {
         }
       }
       if (views_number_field_detection($name)) {
-        $fields[$name] = $field->ui_name() . $this->_string_brackets($name);
+        $fields[$name] = $field->ui_name() . $this->_string_brackets($field_name);
       }
     }
 
